@@ -1,0 +1,55 @@
+---
+# Additional page configuration
+
+# Additional configurations are loaded using its file name, minus the extension, as an anchor (https://<mydashboad>#<config>). 
+# `config.yml` is still used as a base configuration, and all values here will overwrite it, so you don't have to re-defined everything
+
+
+subtitle: "Admin Apps and Services"
+
+# Optional message
+# message:
+#   style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
+#   title: "Demo !"
+#   icon: "fa fa-grin"
+#   content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
+
+
+# as we want to include a differente link here (so we can get back to home page), we need to replicate all links or they will be revome when overwriting the links field:
+links:
+  - name: "Public Apps"
+    icon: "fas fa-file-alt"
+    url: "#" 
+  - name: "Admin Apps"
+    icon: "fas fa-file-alt"
+    url: "#admin-page" 
+
+services:
+  - name: "Media Tools"
+    icon: "fa-solid fa-photo-film"
+    items:
+      - name: "Unraid"
+        subtitle: "Server GUI"
+        logo: https://img.icons8.com/fluency/120/unraid.png
+        url: "https://unraid.net"
+        target: "_blank"
+
+      - name: "MKV Tool"
+        subtitle: "MKV editor"
+        logo: https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/mkvtoolnix-icon.png
+        url: "https://mkvtoolnix.download/downloads.html"
+        target: "_blank"
+        
+      - name: "Media Info"
+        subtitle: "video file info"
+        logo: https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/mediainfo-icon.png
+        url: "https://mediaarea.net/en/MediaInfo/Download"
+        target: "_blank"
+        
+      - name: "Vault Warden Admin Settings"
+        subtitle: "Password Manager (BitWarden)"
+        logo: https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/vaultwarden.png
+        url: "https://github.com/dani-garcia/vaultwarden"
+        target: "_blank"
+
+   

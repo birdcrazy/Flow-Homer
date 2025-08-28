@@ -1,0 +1,261 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/search for icons options
+
+title: "Flow"
+subtitle: "- A Custom Homer Theme"
+logo: "/assets/icons/logo.svg"
+# icon: "fas fa-skull-crossbones" # Optional icon
+
+
+# Optional message
+# message:
+#   style: "is-primary" # See https://bulma.io/documentation/components/message/#colors for styling options.
+#   title: "Demo !"
+#   icon: "fa fa-grin"
+#   content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
+
+
+header: true
+footer: false
+
+# custom css stylesheet
+stylesheet:
+  - assets/custom.css
+
+# Set the default layout and color scheme
+defaults:
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: auto # One of 'auto', 'light', or 'dark'
+
+# Optional theme customization (color overrrides)
+# overrrides can also be done using CSS vars 
+colors:
+  light:
+    highlight-primary: rgba(230, 248, 255, 0.90)    # header background
+    highlight-secondary: "#260d73"         # tag default background color
+    highlight-hover: "#e6f8ff"
+    background: "#12122b"
+    card-background:          rgba(230, 248, 255, 0.75)
+    card-background-hovered:  rgba(230, 248, 255, 0.98)
+    text: "#000000"
+    text-header: "#1a6565"
+    text-tabs: "#d6def5"
+    text-title: "#000000"       # card title color
+    text-subtitle: "#111111"    # card subtitle color
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#3273dc"
+    link-hover: "#2e4053"
+    group-icon-color: "#ffffff"
+    group-title-color: "#ffffff"
+    group-background: rgba(42, 132, 162, 0.85)
+    tab-strip-leadout-radius-top:     30px
+    tab-strip-leadout-radius-bottom:  30px
+    tab-strip-background: rgba(0, 0, 0, 0.8);
+    group-top-radius:     2.0rem
+    group-bottom-radius:  0.5rem
+    group-spacing:        0.5rem
+    card-spacing:         0.5rem
+    card-radius:          1.5rem
+    card-extra-space-multiplyer: 5    # value >=2
+    background-tint-color: rgba(255,255,255,0.175)  # applies a color/tint over the background/image. can make semi-transparent to darken, or tint the background image for dark mode
+    background-image: "/assets/images/Background/night-ocean-aurora-borealis.jpg"
+    # background-image: "/assets/images/Background/daylight-ocean.jpg"
+
+  dark:
+    highlight-primary: rgba(24, 28, 58, 0.95)     # header background
+    highlight-secondary: "#262673"       # tag default background color
+    highlight-hover: "#1F2347"
+    background: "#12122b"
+    card-background:          rgba(24, 28, 58, 0.7)
+    card-background-hovered:  rgba(24, 28, 58, 0.98)
+    text: "#fafafa"
+    text-header: "#9ae5e5"
+    text-tabs: "#6f8bdc"
+    text-title: "#fafafa"       # card title color
+    text-subtitle: "#8B8D9C"    # card subtitle color
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#c1c1c1"
+    link-hover: "#fafafa"
+    group-icon-color: "#202060"
+    group-title-color: "#202060"
+    group-background: rgb(42, 162, 162, 0.85)
+    tab-strip-leadout-radius-top:     30px
+    tab-strip-leadout-radius-bottom:  30px
+    tab-strip-background: rgba(0, 0, 0, 0.9)
+    group-top-radius:     2.0rem
+    group-bottom-radius:  0.5rem
+    group-spacing:        0.5rem
+    card-spacing:         0.5rem
+    card-radius:          1.5rem   # only absolute units here (no percent)
+    card-extra-space-multiplyer: 5    # value must be >=2
+    background-tint-color: rgba(0,0,0,0.4)  # applies a color/tint over the background/image. can make semi-transparent to darken, or tint the background image for dark mode
+    background-image: "/assets/images/Background/night-ocean-aurora-borealis.jpg"
+
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links: 
+  - name: "Public  Apps"
+    icon: "fas fa-file-alt"
+    url: "#" 
+  - name: "Admin Apps"
+    icon: "fas fa-file-alt"
+    url: "#admin-page" 
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Apps"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Immich"
+        subtitle: "Personal Image and video library"
+        logo: https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png
+        url: "https://immich.app/docs/overview/welcome/"
+        target: "_blank"
+        tag: "app"
+        # tagstyle: "is-primary" # https://bulma.io/documentation/start/syntax/
+
+      - name: "Jellyfin"
+        subtitle: "A Super long subtitle to test line wrapping and tooltip size. yes, this is quite long, I want it to be long enough to overflow the 3 avaliable text lines"
+        logo: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jellyfin-logo.png
+        url: "https://jellyfin.org"
+        target: "_blank"
+        class: "icon-only"
+        tag: "app"
+
+      - name: "Jellyseerr"
+        subtitle: "This subtitle is \n Purpously two lines"
+        logo: https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/public/android-chrome-512x512.png
+        url: "https://docs.jellyseerr.dev"
+        target: "_blank"
+        class: "icon-only"
+        tag: "app"
+
+      - name: "Budget Board"
+        subtitle: "Financial Tracker"
+        logo: https://raw.githubusercontent.com/teelur/budget-board/main/client/public/budgetBoardIcon.svg
+        url: "https://github.com/teelur/budget-board"
+        target: "_blank"
+        class: "icon-only"
+
+
+  - name: "Apps1"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Jellyseerr"
+        subtitle: "Request Content for Jellyfin"
+        logo: https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/public/android-chrome-512x512.png
+        url: "https://docs.jellyseerr.dev"
+        target: "_blank"
+        class: "icon-only"
+
+      - name: "Budget Board"
+        subtitle: "Financial Tracker"
+        logo: https://raw.githubusercontent.com/teelur/budget-board/main/client/public/budgetBoardIcon.svg
+        url: "https://github.com/teelur/budget-board"
+        target: "_blank"
+        class: "icon-only"
+      
+      # A spacer to add extra space between cards
+      # can be used to visually separate into sub-groups
+      - name: "card-spacer"
+        class: "card-spacer"
+        
+      - name: "Jellyseerr"
+        subtitle: "Request Content for Jellyfin"
+        logo: https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/public/android-chrome-512x512.png
+        url: "https://docs.jellyseerr.dev"
+        target: "_blank"
+        class: "icon-only"
+
+      - name: "Budget Board"
+        subtitle: "Financial Tracker"
+        logo: https://raw.githubusercontent.com/teelur/budget-board/main/client/public/budgetBoardIcon.svg
+        url: "https://github.com/teelur/budget-board"
+        target: "_blank"
+        class: "icon-only"
+        
+      - name: "Jellyseerr"
+        subtitle: "Request Content for Jellyfin"
+        logo: https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/public/android-chrome-512x512.png
+        url: "https://docs.jellyseerr.dev"
+        target: "_blank"
+        class: "icon-only"
+
+      - name: "Budget Board"
+        subtitle: "Financial Tracker"
+        logo: https://raw.githubusercontent.com/teelur/budget-board/main/client/public/budgetBoardIcon.svg
+        url: "https://github.com/teelur/budget-board"
+        target: "_blank"
+        class: "icon-only"
+        
+      - name: "Jellyseerr"
+        subtitle: "Request Content for Jellyfin"
+        logo: https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/public/android-chrome-512x512.png
+        url: "https://docs.jellyseerr.dev"
+        target: "_blank"
+        class: "icon-only"
+
+      # A spacer to add extra space between cards
+      # can be used to visually separate into sub-groups
+      - name: "card-spacer"
+        class: "card-spacer"
+        
+      - name: "Jellyseerr"
+        subtitle: "Request Content for Jellyfin"
+        logo: https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/public/android-chrome-512x512.png
+        url: "https://docs.jellyseerr.dev"
+        target: "_blank"
+
+  - name: "Apps2"
+    icon: "fas fa-cloud"
+    items:
+      - name: "SimpleFIN"
+        subtitle: "Bank data fetcher for Budget Board"
+        logo: https://beta-bridge.simplefin.org/static/logo.svg
+        url: "https://beta-bridge.simplefin.org"
+        target: "_blank"
+
+      - name: "Kitchen Owl"
+        subtitle: "Shopping Lists, Recipes, and Meal Planning"
+        logo: https://raw.githubusercontent.com/TomBursch/kitchenowl/main/kitchenowl/assets/icon/icon.png
+        url: "https://kitchenowl.org"
+        target: "_blank"
+      
+      # A spacer to add extra space between cards
+      # can be used to visually separate into sub-groups
+      - name: "card-spacer"
+        class: "card-spacer"
+
+      - name: "Vault Warden"
+        subtitle: "Password Manager (BitWarden) this is a very long subtitle lalalalal al al al lal lal al lal al laf sadjkg haskldgh aslkdfjgh aklsdhg ajkgh ajklsdhg klasdghkjl ashdglkj ahsgdjkl "
+        logo: https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/vaultwarden.png
+        url: "https://github.com/dani-garcia/vaultwarden"
+        target: "_blank"
+        tag: "app"
+
+  - name: "Apps3 A really long group name, very very very long group name to make sure group name overflow works properly"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Vault Warden"
+        subtitle: "Password Manager (BitWarden) this is a very long subtitle lalalalal al al al lal lal al lal al laf sadjkg haskldgh aslkdfjgh aklsdhg ajkgh ajklsdhg klasdghkjl ashdglkj ahsgdjkl "
+        logo: https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/vaultwarden.png
+        url: "https://github.com/dani-garcia/vaultwarden"
+        target: "_blank"
+        tag: "app"
+      - name: "Vault Warden Long Name Long Long Long"
+        subtitle: "Password Manager (BitWarden) this is a very long subtitle lalalalal al al al lal lal al lal al laf sadjkg haskldgh aslkdfjgh aklsdhg ajkgh ajklsdhg klasdghkjl ashdglkj ahsgdjkl "
+        logo: https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/vaultwarden.png
+        url: "https://github.com/dani-garcia/vaultwarden"
+        target: "_blank"
+        tag: "app"
+      - name: "Vault Warden Long Name Long Long Long"
+        subtitle: "Password Manager (BitWarden) this is a very long subtitle lalalalal al al al lal lal al lal al laf sadjkg haskldgh aslkdfjgh aklsdhg ajkgh ajklsdhg klasdghkjl ashdglkj ahsgdjkl "
+        logo: https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/vaultwarden.png
+        url: "https://github.com/dani-garcia/vaultwarden"
+        target: "_blank"
+        tag: "app"
+
