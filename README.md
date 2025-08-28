@@ -40,3 +40,37 @@ Groups and Cards
 ## Customizations:
 Most customizations are done via the light and dark variables under "colors" just like you would for Homer normally. There are additional variables provided with this theme for customizing the theme without needing to dive into the css. The extra variables should be self explanitory via thier names.
 
+- To Make a compressed icon-only card in column view, you just need to add `class: "icon-only"` to the item parameters like the example below:
+```
+services:
+  - name: "Apps"
+    icon: "fas fa-cloud"
+    items:
+      - name: "my app"
+        subtitle: "subtitle"
+        logo: https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png
+        url: "my app url"
+        class: "icon-only"
+```
+
+- To add virtical space between cards in column view, we will make a fake card with the item class parameter `class: "card-spacer"` similar to the example below. 
+This card spacer must have a name parameter, otherwise searching will break.
+```
+services:
+  - name: "Apps"
+    icon: "fas fa-cloud"
+    items:
+      - name: "my app"
+        subtitle: "subtitle"
+        logo: https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png
+        url: "my app url"
+
+      - name: "card-spacer"
+        class: "card-spacer"
+    
+      - name: "my app2"
+        subtitle: "subtitle2"
+        logo: https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png
+        url: "my app url2"
+```
+
