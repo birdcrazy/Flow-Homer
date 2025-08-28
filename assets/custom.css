@@ -38,7 +38,6 @@
 
 
 /* Define default variable values (when not defined in config.yml) */
-/* define default font */
 #app {
   --group-top-radius: 2.0rem;
   --group-bottom-radius: 0.5rem;
