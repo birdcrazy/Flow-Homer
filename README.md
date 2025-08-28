@@ -1,2 +1,2 @@
-# Flow-Homer
+# Flow
 A custom Homer theme
