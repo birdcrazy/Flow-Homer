@@ -36,6 +36,10 @@ Groups and Cards
 - Added backgrounds to groups in column view
 - Added background to groups title in row view
 
+## Installation:
+1. backup your Hommer assets folder
+2. past the contents of the [assets folder](assets) into your Homer assets folder
+3. Edit the [config.yml](assets/config.yml) as needed.
 
 ## Customizing Cards:
 Most customizations are done via the light and dark variables under "colors" just like you would for Homer normally. There are additional variables provided with this theme for customizing the theme without needing to dive into the css. The extra variables should be self explanitory via thier names.
