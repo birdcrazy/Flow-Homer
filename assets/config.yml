@@ -161,7 +161,8 @@ services:
       
       # A spacer to add extra space between cards
       # can be used to visually separate into sub-groups
-      - class: "card-spacer"
+      - name: "card-spacer"
+        class: "card-spacer"
         
       - name: "Jellyseerr"
         subtitle: "Request Content for Jellyfin"
@@ -200,7 +201,8 @@ services:
 
       # A spacer to add extra space between cards
       # can be used to visually separate into sub-groups
-      - class: "card-spacer"
+      - name: "card-spacer"
+        class: "card-spacer"
         
       - name: "Jellyseerr"
         subtitle: "Request Content for Jellyfin"
@@ -225,7 +227,8 @@ services:
       
       # A spacer to add extra space between cards
       # can be used to visually separate into sub-groups
-      - class: "card-spacer"
+      - name: "card-spacer"
+        class: "card-spacer"
 
       - name: "Vault Warden"
         subtitle: "Password Manager (BitWarden) this is a very long subtitle lalalalal al al al lal lal al lal al laf sadjkg haskldgh aslkdfjgh aklsdhg ajkgh ajklsdhg klasdghkjl ashdglkj ahsgdjkl "

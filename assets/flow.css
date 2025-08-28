@@ -64,7 +64,7 @@
   --group-icon-color: #202060;
   --group-title-color: #202060;
   --text-tabs: #6f8bdc;
-  --tab-strip-background: rgba(0, 0, 0, 0.9)
+  --tab-strip-background: rgba(0, 0, 0, 0.9);
 }
 
 /* allow tinting of background. Usefull for darkening an image for dark mode. */
