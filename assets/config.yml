@@ -21,7 +21,7 @@ footer: false
 
 # custom css stylesheet
 stylesheet:
-  - assets/custom.css
+  - assets/flow.css
 
 # Set the default layout and color scheme
 defaults:
@@ -33,7 +33,7 @@ defaults:
 colors:
   light:
     highlight-primary: rgba(230, 248, 255, 0.90)    # header background
-    highlight-secondary: "#260d73"         # tag default background color
+    highlight-secondary: "#260d73"                  # tag default background color
     highlight-hover: "#e6f8ff"
     background: "#12122b"
     card-background:          rgba(230, 248, 255, 0.75)
@@ -64,7 +64,7 @@ colors:
 
   dark:
     highlight-primary: rgba(24, 28, 58, 0.95)     # header background
-    highlight-secondary: "#262673"       # tag default background color
+    highlight-secondary: "#262673"                # tag default background color
     highlight-hover: "#1F2347"
     background: "#12122b"
     card-background:          rgba(24, 28, 58, 0.7)
@@ -161,8 +161,7 @@ services:
       
       # A spacer to add extra space between cards
       # can be used to visually separate into sub-groups
-      - name: "card-spacer"
-        class: "card-spacer"
+      - class: "card-spacer"
         
       - name: "Jellyseerr"
         subtitle: "Request Content for Jellyfin"
@@ -201,8 +200,7 @@ services:
 
       # A spacer to add extra space between cards
       # can be used to visually separate into sub-groups
-      - name: "card-spacer"
-        class: "card-spacer"
+      - class: "card-spacer"
         
       - name: "Jellyseerr"
         subtitle: "Request Content for Jellyfin"
@@ -227,8 +225,7 @@ services:
       
       # A spacer to add extra space between cards
       # can be used to visually separate into sub-groups
-      - name: "card-spacer"
-        class: "card-spacer"
+      - class: "card-spacer"
 
       - name: "Vault Warden"
         subtitle: "Password Manager (BitWarden) this is a very long subtitle lalalalal al al al lal lal al lal al laf sadjkg haskldgh aslkdfjgh aklsdhg ajkgh ajklsdhg klasdghkjl ashdglkj ahsgdjkl "

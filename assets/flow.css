@@ -1,0 +1,643 @@
+@charset "UTF-8";
+
+/* Saeada 500 */
+@font-face {
+  font-family: 'Saeada';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('./fonts/Saeada/Saeada-Light/Saeada-Light.woff2') format('woff2'   ),
+       url('./fonts/Saeada/Saeada-Light/Saeada-Light.woff')  format('woff'    ),
+       url('./fonts/Saeada/Saeada-Light/Saeada-Light.ttf')   format('truetype'),
+       url('./fonts/Saeada/Saeada-Light/Saeada-Light.otf')   format('opentype');
+}
+
+/* Saeada 700 */
+@font-face {
+  font-family: 'Saeada';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('./fonts/Saeada/Saeada-Regular/Saeada-Regular.woff2') format('woff2'   ),
+       url('./fonts/Saeada/Saeada-Regular/Saeada-Regular.woff')  format('woff'    ),
+       url('./fonts/Saeada/Saeada-Regular/Saeada-Regular.ttf')   format('truetype'),
+       url('./fonts/Saeada/Saeada-Regular/Saeada-Regular.otf')   format('opentype');
+}
+
+/* Saeada 800 */
+@font-face {
+  font-family: 'Saeada';
+  font-style: normal;
+  font-weight: 800;
+  src: local(''),
+       url('./fonts/Saeada/Saeada-SemiBold/Saeada-SemiBold.woff2') format('woff2'   ),
+       url('./fonts/Saeada/Saeada-SemiBold/Saeada-SemiBold.woff')  format('woff'    ),
+       url('./fonts/Saeada/Saeada-SemiBold/Saeada-SemiBold.ttf')   format('truetype'),
+       url('./fonts/Saeada/Saeada-SemiBold/Saeada-SemiBold.otf')   format('opentype');
+}
+
+
+/* Define default variable values (when not defined in config.yml) */
+#app {
+  --group-top-radius: 2.0rem;
+  --group-bottom-radius: 0.5rem;
+  --group-spacing: 0.5rem;
+  --card-spacing: 0.5rem;
+  --card-radius: 1.5rem;
+  --card-extra-space-multiplyer: 4;
+  --tab-strip-leadout-radius-top:     30px;
+  --tab-strip-leadout-radius-bottom:  30px;
+}
+#app.light {
+  --group-background: rgba(42, 132, 162, 0.85);
+  --card-background-hovered: rgba(230, 248, 255, 0.98);
+  --background-tint-color: rgba(255,255,255,0.175); 
+  --group-icon-color: #ffffff;
+  --group-title-color: #ffffff;
+  --text-tabs: #d6def5;
+  --tab-strip-background: rgba(0, 0, 0, 0.8);
+}
+#app.dark{
+  --group-background: rgb(42, 162, 162, 0.85);
+  --card-background-hovered: rgba(24, 28, 58, 0.98);
+  --background-tint-color: rgba(0,0,0,0.4); 
+  --group-icon-color: #202060;
+  --group-title-color: #202060;
+  --text-tabs: #6f8bdc;
+  --tab-strip-background: rgba(0, 0, 0, 0.9)
+}
+
+/* allow tinting of background. Usefull for darkening an image for dark mode. */
+#main-section{
+  background-color: var(--background-tint-color);
+
+  /* smooths and allows consistant transparency on lower navbar leadout */
+  border-top-left-radius:  var(--tab-strip-leadout-radius-bottom);
+  border-top-right-radius: var(--tab-strip-leadout-radius-bottom);
+}
+/* main-section to bottom of screen so tint will cover full image*/ 
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#main-section {
+  flex: 1 1 auto;        
+  min-height: 0;
+  overflow:auto;
+}
+
+/* smoothly transition colors between light and dark mode */
+#main-section, i, .column, .group-title, .column::before, .card, .title, .subtitle, 
+              .dashboard-title, .search-label, #app-mount, .message-body,
+              .first-line, .first-line::before, .first-line::after, 
+              .navbar, .navbar::before, .navbar::after{
+  
+  will-change: border-color, background-color, box-shadow, border-radius, color;
+  
+  transition: border-color      0.6s ease, 
+              background-color  0.7s ease, 
+              box-shadow        0.7s ease, 
+              border-radius     0.7s ease, 
+              color             0.9s ease;
+}
+
+/* allow group title icons to have separate specified color */
+.columns .column i{
+  color: var(--group-icon-color);
+}
+
+/* -------------------------------------------------------------------- */
+/* navbar customization */
+
+/* most of these navbar customizations are aimed to reduce virtical space ocupied by the navbar when on mobile */
+
+/* allow navbar to have unique specified color */
+body #bighead .navbar {
+  position: relative;
+  background-color: var(--tab-strip-background);
+
+  /* set navbar color */
+  & a{
+    color: var(--text-tabs);
+  }
+
+  /* set navbar item formatting on hover */
+  & a:focus, 
+  & a:hover {
+    color: var(--link-hover);
+  }
+  
+  /* add leadout on navbar bottom */
+  &::before,
+  &::after{
+    position: absolute;
+    content: "";
+    width: var(--tab-strip-leadout-radius-bottom);
+    aspect-ratio: 1 / 1;
+    top: 100%;
+    background-color: var(--tab-strip-background);
+  }
+  &::before{
+    left: 0;
+    -webkit-mask-image: radial-gradient(circle farthest-side at bottom right, transparent 100%, black 100%);
+    mask-image:         radial-gradient(circle farthest-side at bottom right, transparent 100%, black 100%);
+  }
+  &::after{
+    right: 0;
+    -webkit-mask-image: radial-gradient(circle farthest-side at bottom left, transparent 100%, black 100%);
+    mask-image:         radial-gradient(circle farthest-side at bottom left, transparent 100%, black 100%);
+  }
+}
+
+/* add leadout on navbar top */
+body #bighead .first-line {
+  position: relative;
+  border-bottom-left-radius: var(--tab-strip-leadout-radius-top);
+  border-bottom-right-radius: var(--tab-strip-leadout-radius-top);
+  min-height: auto;
+  padding-bottom: 0.2rem;
+
+  &::before,
+  &::after{
+    position: absolute;
+    content: "";
+    width: var(--tab-strip-leadout-radius-top);
+    aspect-ratio: 1 / 1;
+    bottom: 0;
+    background-color: var(--tab-strip-background);
+  }
+  &::before{
+    left: 0;
+    -webkit-mask-image: radial-gradient(circle farthest-side at top right, transparent 100%, black 100%);
+    mask-image:         radial-gradient(circle farthest-side at top right, transparent 100%, black 100%);
+  }
+  &::after{
+    right: 0;
+    -webkit-mask-image: radial-gradient(circle farthest-side at top left, transparent 100%, black 100%);
+    mask-image:         radial-gradient(circle farthest-side at top left, transparent 100%, black 100%);
+  }
+}
+
+/* place header title above subtitle */
+.first-line .dashboard-title{
+  display: flex;
+  flex-direction: column-reverse;
+
+  /* set font for main page title and subtitle */
+  & h1 {
+    font-family: Saeada;
+    font-weight: 700;
+    font-size: xx-large;
+    line-height: 1.1;
+
+    margin-top: 0;
+    height: auto;
+  }
+  & .headline {
+    font-family: Saeada;
+    font-weight: 700;
+    font-size: medium;
+
+    margin-top: -2px;
+    margin-left: 0.5rem;
+    height: auto;
+  }
+}
+
+/* allow tabs to wrap, and make tabs open in rows */
+.navbar-start{
+  display: flex;
+  flex-wrap: wrap;
+
+  /* add radius to hover highlight */
+  & > a{
+    border-radius: 10px;
+    
+    will-change: transform, background-color;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:active {
+      transform: scale(0.85); /* press-down effect */
+    }
+  }
+}
+
+/* encourage navbar to wrap and keep navbar from overflowing when excessive amount of tabs */
+/* set navbar font */
+.navbar-menu{
+  width: fit-content;
+  
+  font-family: Saeada;
+  font-weight: 500;
+  font-size: medium;
+}
+
+/* push navbar-end to top (keeps icons inline with searchbar) */
+.navbar-end{
+  display: flex;
+  align-self: start;
+
+  /* add radius to hover highlight */
+  & > a{
+    border-radius: 10px;
+    
+    will-change: transform, background-color;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:active {
+      transform: scale(0.85); /* press-down effect */
+    }
+  }
+}
+
+/* Make search icon in search field contrast with search field background */
+.navbar-end .search-bar .search-label::before{
+  color: var(--link-hover);
+}
+
+/* change active search bar colors to be consistant with theme colors */
+#search{
+  color: var(--link-hover);
+  background-color: var(--highlight-hover);
+}
+
+/* place navbar-end and navbar-start to the left of hamburger */
+.navbar > .container{
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1023px) {
+  /* display navbar-end even when hamburger is colapsed */
+  .navbar-menu{
+    display: flex;
+    flex-direction: column-reverse;
+
+    /* Hide navbar-start (tabs) when hamburger is not expanded */
+    &:not(.is-active) .navbar-start{
+      display: none;
+    }
+  }
+
+  /* set virtical postiion of hamburger/close icons */
+  .navbar-brand{
+    align-self: start;
+    margin-top: 8px;
+  }
+
+  /* Constrain the width of the searchbar to available space in the titlebar */
+  .navbar .search-bar.navbar-item.is-inline-block-mobile:focus-within {
+    max-width: calc(100vw - (46px + 44px + 44px + 12px + 12px)) !important;
+  }
+
+  /* for some reason this is needed to keep searchbox aligned left */
+  .navbar .search-bar.navbar-item.is-inline-block-mobile input[type="search"] {
+    max-width: 100%;
+  }
+
+  /* place navbar-end on same row as hamburger */
+  .navbar > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Make icons center virtically when in mobile mode*/
+  .navbar-item.is-inline-block-mobile {
+    display: flex;
+    align-items: center;
+    align-self: center;
+  }
+}
+
+/* keep tag above inside corner radius block */
+.tag{
+  z-index: 101;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* general card customization */
+
+/* change message font*/
+.message.is-primary{
+  margin-top: 0.5rem;
+
+  & .message-header{
+    font-family: Saeada;
+    font-weight: 800;
+    font-size: large;
+    padding: 0.7rem;
+  }
+
+  & .message-body{
+    font-family: Saeada;
+    font-weight: 700;
+    font-size: medium;
+    padding: 1rem;
+  }
+}
+
+/* Sets the group title position and to be a bolder font */
+.group-title {
+  font-family: Saeada;
+  font-weight: 800;
+  font-size: x-large;
+
+  color: var(--group-title-color);
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-top: 0;
+}
+
+/* Changes the card title to be a bolder font */
+.title {
+  font-family: Saeada;
+  font-weight: 700;
+  font-size: large;
+
+  white-space: normal;
+  overflow: hidden;                
+  display: -webkit-box;            /* used to contain overflow */
+  -webkit-line-clamp: 1;           /* otherwise long tiltes will make the card too big*/
+  -webkit-box-orient: vertical;
+}
+
+/* Changes the subtitle to be a bolder font */
+/* Allows sub-title to wrap up to 3 rows */
+.subtitle {
+  font-family: Saeada;
+  font-weight: 500;
+  font-size: small;
+
+  white-space: pre-line;        /*allow newlines from subtitle text*/
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;        /* allow 3 rows of line wrapping */
+  -webkit-box-orient: vertical;
+}
+
+/*  center card content virtically */
+.card-content {
+  display: flex;
+  align-items: center;
+}
+
+/* removes bottom margine that is added when tags are used */
+/* centers title and subtitle virtically */
+.media{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;    
+}
+
+
+/*Adds more border radius to the cards */
+.card {
+  will-change: transform, background-color;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: var(--card-radius);
+  max-width: 100%;
+  z-index: 90;
+
+  /* Animate cards on hover and on press*/
+  &:hover,
+  &:active {
+    background-color: var(--card-background-hovered);
+    z-index: 100; /*needed to make tooltip render over other cards*/
+  }
+  &:hover {
+    transform: scale(1.03);
+  }
+  &:active {
+    transform: scale(0.97); /* press-down effect */
+  }
+}
+
+/* keep card-spacer invisible uless called uppon */
+.card-spacer{
+  display: none;
+}
+
+/* add padding to column area so small screens have space between the content and edges of screen */
+.columns{
+  padding-left: var(--group-spacing);
+  padding-right: var(--group-spacing);
+}
+
+
+/* -------------------------------------------------------------------- */
+/* column view customization */
+
+.columns.layout-vertical
+{
+  /* create grid for dynamic numner of columns */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+
+  /* adds background to groups as well as other group formatting */
+  .column {
+    padding-left: var(--card-spacing);
+    padding-right: var(--card-spacing);
+
+    border-top-left-radius: var(--group-top-radius);
+    border-top-right-radius: var(--group-top-radius);
+    border-bottom-left-radius: var(--group-bottom-radius);
+    border-bottom-right-radius: var(--group-bottom-radius);
+
+    margin: var(--group-spacing);
+    align-self: flex-start;
+    height: auto;
+
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+
+    background-color: var(--group-background);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-spacing);
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Cards that are icon-only */
+  .icon-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--card-radius);
+  }
+
+  /* adds an invisible card with set height as a spacer between cards when requested */
+  .card-spacer{
+    display: block;
+    visibility: hidden;
+    height: calc(var(--card-spacing) * (var(--card-extra-space-multiplyer) - 2));
+  }
+
+
+  /* Make title span full row so cards aren't on the same line*/
+  .column > .group-title {
+    flex: 0 0 100%;
+    margin-bottom: calc(-1 * var(--card-spacing));
+  }
+
+  /* define flex container for non-icon only groups */
+  .column > :not(.group-title):not(.icon-only) {
+    flex: 0 0 100%;
+  }
+
+  /* Center icon in icon-only box */
+  .icon-only .media-left{
+    margin-right: 0;
+  }
+
+  .column {
+    flex: unset;
+    width: unset;
+    max-width: unset;
+  }
+
+  /* Adds spacing to the bottom of cards */
+  .card-content {
+    margin-bottom: var(--card-spacing-virtical);
+  }
+
+
+  /* Add inside corner radiuses to icon-only tooltip to make them feel like the same item */
+  .icon-only .card:hover{
+    --inner-tooltip-radius: 1.1rem;  
+    --inner-tooltip-radius-double: calc(2 * var(--inner-tooltip-radius));
+    --inner-tooltip-radius-negative: calc(-1 * var(--inner-tooltip-radius));
+    
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &::before,
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: var(--inner-tooltip-radius-double);
+      width: var(--inner-tooltip-radius-double);
+      background-color: transparent;
+      z-index: 10;
+    }
+    &::before{
+      right: 100%;
+      border-bottom-right-radius: 50%;
+      box-shadow: var(--inner-tooltip-radius) var(--inner-tooltip-radius) 0 0 var(--card-background-hovered);
+      clip-path: inset(0 -0.5px -1px 0);
+    }
+    &::after{
+      left: 100%;
+      border-bottom-left-radius: 50%;
+      box-shadow: var(--inner-tooltip-radius-negative) var(--inner-tooltip-radius) 0 0 var(--card-background-hovered);
+      clip-path: inset(0 0 -1px -0.5px);
+    }
+  }
+  
+
+  /* Tooltip hidden by default until hovered over */
+  .icon-only .media-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -62.5%;
+    width: 225%;
+    height: auto;
+    padding: 0.5rem;
+    background: var(--card-background-hovered);
+    z-index: 1000;                                    /* keep tooltip above cards */
+    border-radius: min(var(--card-radius), 1.5rem);     /*limit tooltip radius to prevent text cutoff*/
+    pointer-events: none;                             /* hide tooltip if hovered over (hover moved off of icon-only card) */
+  }
+
+  /* Show tooltip on hover and on press*/
+  .icon-only:hover .media-content,
+  .icon-only:active .media-content {
+    display: block;
+  }
+}
+
+
+/* -------------------------------------------------------------------- */
+/* column view customization */
+
+/* make variables for the columns (needed here for accessability from "h2.column.is-full.group-title + .column" reference) */
+.column{
+  --full-group-title-radius: 1.2rem;
+  --full-group-wrap-radius: calc(var(--card-radius) + var(--card-spacing));
+}
+
+.columns:not(.layout-vertical){
+  
+  /* create grid for dynamic numner of columns */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  /* set-width, color title background, and make sure it uses whole row */
+  .column.is-full.group-title{
+    background-color: var(--group-background);
+    margin-top: 1.3rem;
+    margin-bottom: 0;
+    padding-top: 0.3rem;
+    padding-bottom: 0.35rem;
+    padding-right: calc(var(--full-group-title-radius) * 1.5);
+    border-top-left-radius: var(--full-group-title-radius);
+    border-top-right-radius: calc(var(--full-group-title-radius) * 3) 100%;
+    height: auto;
+    width: fit-content;
+    max-width: 100%;
+    margin-right: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    /* group title spans all grid columns */
+    grid-column: 1 / -1;   
+  }
+  
+  /* Make sure cards take up full grid width */
+  .column{
+    width: 100%;
+  }
+
+  /* target first card in group */
+  h2.column.is-full.group-title + .column {
+    position: relative;
+    overflow: visible;
+
+    /* Create title wrap-arount radius effect */
+    &::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: min(var(--full-group-wrap-radius), 50%);
+      aspect-ratio: 1 / 1;
+      background-color: var(--group-background);
+
+      -webkit-mask-image: radial-gradient(circle farthest-side at bottom right, transparent 100%, black 100%);
+      mask-image:         radial-gradient(circle farthest-side at bottom right, transparent 100%, black 100%);
+    }
+  }
+  
+  /* add accent outline to cards */
+  .card{
+    border-color: var(--group-background);
+    border-style: solid;
+    border-width: 4px;
+  }
+  
+  /* change card spacing via variable */
+  .column{
+    padding: var(--card-spacing);
+  }
+}
+
+
