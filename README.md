@@ -37,7 +37,7 @@ Groups and Cards
 - Added background to groups title in row view
 
 
-## Customizations:
+## Customizing Cards:
 Most customizations are done via the light and dark variables under "colors" just like you would for Homer normally. There are additional variables provided with this theme for customizing the theme without needing to dive into the css. The extra variables should be self explanitory via thier names.
 
 - To Make a compressed icon-only card in column view, you just need to add `class: "icon-only"` to the item parameters like the example below:
