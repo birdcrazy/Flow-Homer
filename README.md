@@ -53,7 +53,7 @@ services:
         class: "icon-only"
 ```
 
-- To add virtical space between cards in column view, we will make a fake card with the item class parameter `class: "card-spacer"` similar to the example below. 
+- To add virtical space between cards in column view, you must make a fake card with the item parameter `class: "card-spacer"` similar to the example below. 
 This card spacer must have a name parameter, otherwise searching will break.
 ```
 services:
