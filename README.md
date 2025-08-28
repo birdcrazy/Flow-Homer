@@ -37,8 +37,8 @@ Groups and Cards
 - Added background to groups title in row view
 
 ## Installation:
-1. backup your Hommer assets folder
-2. past the contents of the [assets folder](assets) into your Homer assets folder
+1. Backup your Hommer assets folder
+2. Paste the contents of the [assets folder](assets) into your Homer assets folder
 3. Edit the [config.yml](assets/config.yml) as needed.
 
 ## Customizing Cards:
