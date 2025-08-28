@@ -310,14 +310,14 @@ body #bighead .first-line {
   }
 }
 
+
+/* -------------------------------------------------------------------- */
+/* general card customization */
+
 /* keep tag above inside corner radius block */
 .tag{
   z-index: 101;
 }
-
-
-/* -------------------------------------------------------------------- */
-/* general card customization */
 
 /* change message font*/
 .message.is-primary{

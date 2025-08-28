@@ -32,64 +32,76 @@ defaults:
 # overrrides can also be done using CSS vars 
 colors:
   light:
-    highlight-primary: rgba(230, 248, 255, 0.90)    # header background
-    highlight-secondary: "#260d73"                  # tag default background color
-    highlight-hover: "#e6f8ff"
-    background: "#12122b"
+    highlight-primary:    rgba(230, 248, 255, 0.90) # header background
+    highlight-secondary:  "#260d73"                 # tag default background color
+    highlight-hover:      "#e6f8ff"
+    
     card-background:          rgba(230, 248, 255, 0.75)
     card-background-hovered:  rgba(230, 248, 255, 0.98)
-    text: "#000000"
-    text-header: "#1a6565"
-    text-tabs: "#d6def5"
-    text-title: "#000000"       # card title color
-    text-subtitle: "#111111"    # card subtitle color
-    card-shadow: rgba(0, 0, 0, 0.5)
-    link: "#3273dc"
+    card-shadow:              rgba(  0,   0,   0, 0.50)
+    card-spacing:             0.5rem
+    card-radius:              1.5rem
+    card-extra-space-multiplyer: 5    # value >=2
+
+    text:           "#000000"
+    text-header:    "#1a6565"
+    text-tabs:      "#d6def5"
+    text-title:     "#000000"       # card title color
+    text-subtitle:  "#111111"    # card subtitle color
+
+    link:       "#3273dc"
     link-hover: "#2e4053"
-    group-icon-color: "#ffffff"
-    group-title-color: "#ffffff"
-    group-background: rgba(42, 132, 162, 0.85)
-    tab-strip-leadout-radius-top:     30px
-    tab-strip-leadout-radius-bottom:  30px
-    tab-strip-background: rgba(0, 0, 0, 0.8);
+
+    group-icon-color:     "#ffffff"
+    group-title-color:    "#ffffff"
     group-top-radius:     2.0rem
     group-bottom-radius:  0.5rem
     group-spacing:        0.5rem
-    card-spacing:         0.5rem
-    card-radius:          1.5rem
-    card-extra-space-multiplyer: 5    # value >=2
-    background-tint-color: rgba(255,255,255,0.175)  # applies a color/tint over the background/image. can make semi-transparent to darken, or tint the background image for dark mode
+    group-background: rgba(42, 132, 162, 0.85)
+
+    tab-strip-leadout-radius-top:     30px
+    tab-strip-leadout-radius-bottom:  30px
+    tab-strip-background: rgba(0, 0, 0, 0.8);
+
+    background:             "#12122b"                 # main background color (if using a background image, this will be covered)
+    background-tint-color:  rgba(255,255,255,0.175)   # applies a color/tint over the background/image. can make semi-transparent to darken, or tint the background image for dark mode
     background-image: "/assets/images/Background/night-ocean-aurora-borealis.jpg"
     # background-image: "/assets/images/Background/daylight-ocean.jpg"
 
   dark:
-    highlight-primary: rgba(24, 28, 58, 0.95)     # header background
-    highlight-secondary: "#262673"                # tag default background color
-    highlight-hover: "#1F2347"
-    background: "#12122b"
-    card-background:          rgba(24, 28, 58, 0.7)
+    highlight-primary:    rgba(24, 28, 58, 0.95)  # header background
+    highlight-secondary:  "#262673"               # tag default background color
+    highlight-hover:      "#1F2347"
+    
+    card-background:          rgba(24, 28, 58, 0.70)
     card-background-hovered:  rgba(24, 28, 58, 0.98)
-    text: "#fafafa"
+    card-shadow:              rgba( 0,  0,  0, 0.50)
+    card-spacing:             0.5rem
+    card-radius:              1.5rem   # only absolute units here (no percent)
+    card-extra-space-multiplyer: 5    # value must be >=2
+
+    text: "#fafafa" 
     text-header: "#9ae5e5"
     text-tabs: "#6f8bdc"
     text-title: "#fafafa"       # card title color
     text-subtitle: "#8B8D9C"    # card subtitle color
-    card-shadow: rgba(0, 0, 0, 0.5)
+
     link: "#c1c1c1"
     link-hover: "#fafafa"
-    group-icon-color: "#202060"
-    group-title-color: "#202060"
-    group-background: rgb(42, 162, 162, 0.85)
-    tab-strip-leadout-radius-top:     30px
-    tab-strip-leadout-radius-bottom:  30px
-    tab-strip-background: rgba(0, 0, 0, 0.9)
+
+    group-icon-color:     "#202060"
+    group-title-color:    "#202060"
     group-top-radius:     2.0rem
     group-bottom-radius:  0.5rem
     group-spacing:        0.5rem
-    card-spacing:         0.5rem
-    card-radius:          1.5rem   # only absolute units here (no percent)
-    card-extra-space-multiplyer: 5    # value must be >=2
-    background-tint-color: rgba(0,0,0,0.4)  # applies a color/tint over the background/image. can make semi-transparent to darken, or tint the background image for dark mode
+    group-background: rgb(42, 162, 162, 0.85)
+
+    tab-strip-leadout-radius-top:     30px
+    tab-strip-leadout-radius-bottom:  30px
+    tab-strip-background: rgba(0, 0, 0, 0.9)
+
+    background:             "#12122b"        # main background color (if using a background image, this will be covered)
+    background-tint-color:  rgba(0,0,0,0.4)  # applies a color/tint over the background/image. can make semi-transparent to darken, or tint the background image for dark mode
     background-image: "/assets/images/Background/night-ocean-aurora-borealis.jpg"
 
 
