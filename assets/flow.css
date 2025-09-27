@@ -103,7 +103,7 @@
 }
 
 /* allow group title icons to have separate specified color */
-.columns .column i{
+.columns .column .group-title i{
   color: var(--group-icon-color);
 }
 
@@ -426,6 +426,18 @@ body #bighead .first-line {
   padding-right: var(--group-spacing);
 }
 
+
+/* quicklinks formatting */
+.quicklinks {
+  a {
+    background-color: var(--tab-strip-background);
+    color: var(--text-tabs);
+  }
+
+  i {
+    color: var(--text-tabs);
+  }
+}
 
 /* -------------------------------------------------------------------- */
 /* column view customization */
