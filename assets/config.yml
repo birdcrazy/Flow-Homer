@@ -49,7 +49,6 @@ colors:
     text-title:     "#000000"       # card title color
     text-subtitle:  "#111111"    # card subtitle color
 
-    link:       "#3273dc"
     link-hover: "#2e4053"
 
     group-icon-color:     "#ffffff"
@@ -86,7 +85,6 @@ colors:
     text-title: "#fafafa"       # card title color
     text-subtitle: "#8B8D9C"    # card subtitle color
 
-    link: "#c1c1c1"
     link-hover: "#fafafa"
 
     group-icon-color:     "#202060"
