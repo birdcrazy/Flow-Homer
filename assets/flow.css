@@ -390,6 +390,7 @@ body #bighead .first-line {
   display: flex;
   align-items: center;
   margin-bottom: 0;    
+  width: 100%
 }
 
 
@@ -651,5 +652,3 @@ body #bighead .first-line {
     padding: var(--card-spacing);
   }
 }
-
-
